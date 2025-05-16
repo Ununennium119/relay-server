@@ -7,10 +7,3 @@ const (
 type AuthPacket struct {
 	Token string `json:"token"`
 }
-
-type ClientRole int
-
-const (
-	RoleMember ClientRole = iota
-	RoleOwner
-)
