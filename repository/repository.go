@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	_ "github.com/lib/pq"
+	"net/url"
 )
 
 type Repository struct {
@@ -11,7 +12,12 @@ type Repository struct {
 }
 
 func NewRepository(postgresURL, user, password, dbname string) (*Repository, error) {
-	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", user, password, postgresURL, dbname)
+	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable",
+		url.QueryEscape(user),
+		url.QueryEscape(password),
+		postgresURL,
+		dbname,
+	)
 	db, err := sql.Open("postgres", connStr)
 	if err != nil {
 		return nil, err
