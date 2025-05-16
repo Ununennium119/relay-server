@@ -1,0 +1,7 @@
+{
+  "JWTSecretKey": "gfJyWTOIJEY3mindmefzocsQ11dbwljcAKWYaFqlwL8=",
+  "PostgresURL": "localhost:5432",
+  "PostgresUser": "user",
+  "PostgresPassword": "pass",
+  "PostgresDB": "lobby_manager"
+}
